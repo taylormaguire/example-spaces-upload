@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/file-upload', function () {
+    return Storage::disk('spaces')->get('file.txt', 'Contents belong here');
+});
+
+Route::get('/files-read', function () {
+    return Storage::disk('spaces')->get('file.txt');
+});
